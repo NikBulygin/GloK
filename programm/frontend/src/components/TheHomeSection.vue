@@ -14,7 +14,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script  setup lang="ts">
+import { watch } from 'vue'
 import { useBluetooth } from '@vueuse/core'
 
 const {
@@ -25,6 +26,10 @@ const {
   server,
 } = useBluetooth({
   acceptAllDevices: true,
+})
+
+watch([device, server], () => {
+  console.log(device, server)
 })
 </script>
 
