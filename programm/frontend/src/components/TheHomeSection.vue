@@ -29,7 +29,10 @@ const {
 })
 
 watch([device, server], () => {
-  console.log(device, server)
+  console.group()
+  console.log('Данные с Device:', device.value)
+  console.log('Данные с Server:', server.value)
+  console.groupEnd()
 })
 </script>
 
