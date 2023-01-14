@@ -28,11 +28,12 @@ const {
   acceptAllDevices: true,
 })
 
-watch([device, server], () => {
-  console.group()
-  console.log('Данные с Device:', device.value)
-  console.log('Данные с Server:', server.value)
-  console.groupEnd()
+watch(server, (value) => {
+  console.log('Данные с Server:', value)
+})
+
+watch(device, (value) => {
+  console.log('Данные с Device:', value)
 })
 </script>
 
