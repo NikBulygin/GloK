@@ -1,14 +1,15 @@
 <template>
   <div class="_wrapper">
-    <div class="_column">
+    <div class="home-column _column">
       <h1>Project 'GloK'</h1>
-      <div :class="{ '_btn': true, '_disabled': isSupported }" @click="requestDevice()">
+      <small>Поддержка API {{ isSupported }}</small>
+      <div class="_btn" @click="requestDevice()">
         <small>Подключить Bluetooth устройтсво</small>
       </div>
       <h3>Информация об устройстве</h3>
-      <small> Статус: {{ isConnected }}</small>
-      <small> Устройство: {{ device }}</small>
-      <small> Сервер: {{ server }}</small>
+      <small> Подключено: {{ isConnected }}</small>
+      <small v-if="device"> Устройство: {{ device }}</small>
+      <small v-if="server"> Сервер: {{ server }}</small>
     </div>
   </div>
 </template>
@@ -26,3 +27,10 @@ const {
   acceptAllDevices: true,
 })
 </script>
+
+<style scoped lang="scss">
+.home-column {
+  align-items: flex-start;
+  width: 100%
+}
+</style>
