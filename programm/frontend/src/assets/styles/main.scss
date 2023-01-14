@@ -1,0 +1,287 @@
+@import './base.module.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent; 
+}
+
+body, input, button {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: var(--txt-c);
+  line-height: 1;
+
+  @media (max-width: 900px) {
+    font-size: 14px;
+  }
+}
+
+body { background-color: var(--bg-c); }
+a, a:visited { color: var(--txt-c); }
+
+svg {
+  fill: var(--txt-c);
+  transition: all 0.5s ease;
+  &:hover { fill: var(--txt-c-h); }
+}
+
+small {
+  color: var(--txt-c-h);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+input {
+  border-radius: var(--br-rad);
+  padding: var(--space);
+  background-color: var(--wrapper-c);
+  transition: var(--transition);
+
+  &:hover {
+    background-color: var(--wrapper-c-h);
+  }
+}
+
+input[type="checkbox"], input[type="radio"] { display: none; }
+
+label {
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: var(--space);
+    border-radius: var(--br-rad);
+    background-color: var(--wrapper-c);
+    cursor: pointer;
+  }
+}
+
+/* Transitions */
+
+.main {
+  &-enter-from { opacity: 0; }
+  &-enter-active { transition: all 0.2s ease-out; }
+  &-leave-to { opacity: 0; }
+  &-leave-active { transition: all 0.2s ease-in; }
+}
+
+/* Pseudo-Elements */
+
+::selection { background-color: #4f13af33; }
+::-webkit-scrollbar { display: none; }
+
+/* Global Classes */
+
+._container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+._wrapper {
+  margin: 6rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space);
+  box-sizing: border-box;
+  gap: calc(var(--space) * 3);
+
+  @media(max-width: 900px) {
+    margin: 3.75rem auto 0 auto;
+  }
+}
+
+._column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+._row {
+  display: flex;
+  align-items: center;
+  gap: var(--space);
+}
+
+._center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._app-info {
+  height: 50vh;
+  text-align: center;
+
+  svg {
+    height: 100px;
+    width: auto;
+  }
+}
+
+._tp-wp {
+  background-color: var(--tp-c);
+  backdrop-filter: blur(8px);
+  padding: var(--space);
+  border-radius: var(--br-rad);
+}
+
+._bg-wp {
+  background-color: var(--bg-c);
+  padding: var(--space);
+  border-radius: var(--br-rad);
+}
+
+._btn {
+  text-align: center;
+  background-color: var(--accent-c);
+  padding: var(--space);
+  border-radius: var(--br-rad);
+  transition: var(--transition);
+  cursor: pointer;
+  box-sizing: border-box;
+
+  small {
+    color: var(--dark-txt-c);
+  }
+
+  &:hover {
+    background-color: var(--accent-c-h);
+  }
+}
+
+._tip {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: var(--space);
+  max-width: 350px;
+  min-width: 350px;
+}
+
+._svg-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._hash {
+  padding: calc(var(--space) / 2);
+  border-radius: calc(var(--br-rad) / 2);
+
+  h5 {
+    pointer-events: none;
+    text-transform: uppercase;
+    color: var(--dark-txt-c);
+  }
+}
+
+._hash-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+._folder-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+._disabled {
+  filter: contrast(0.5);
+  cursor: default;
+  pointer-events: none;
+}
+
+._i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    min-height: 24px !important;
+    height: 24px;
+    width: auto;
+    cursor: pointer;
+  }
+}
+
+._cb-wrapper {
+  position: relative;
+
+  svg {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+._br {
+  background-color: rgba(128, 128, 128, 0.5);
+  width: 1px;
+  height: 100%;
+}
+
+._delete, ._edit, ._fav {
+  cursor: pointer;
+
+  svg {
+    height: 24px;
+    width: auto;
+    pointer-events: none;
+  }
+}
+
+._fav-active {
+  svg { fill: rgba(255, 0, 0, 0.8); }
+}
+
+._delete:hover {
+  svg { fill: rgba(255, 0, 0, 0.8) }
+}
+
+._edit:hover {
+  svg { fill: rgba(255, 165, 0, 0.8); }
+}
+
+._fav:hover {
+  svg { fill: var(--accent-c) }
+}
+
+._full-fixed {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+._absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

@@ -1,0 +1,48 @@
+:root {
+  /* Colors */
+  --accent-c: rgb(80, 41, 131);
+  --accent-c-h: rgba(80, 41, 131, 0.7);
+  --circle-c: rgb(132, 219, 255);
+  --circle-c-tp: rgba(132, 219, 255, 0.7);
+  --action-size: 250px;
+  --action-size-mob: 150px;
+
+  /* --darkTheme */
+  --dark-bg-c: #242424;
+  --dark-wrapper-c: #2f2f2f;
+  --dark-wrapper-c-h: rgba(68, 68, 68, 0.7);
+  --dark-bg-c-tp: rgba(36, 36, 36, 0.7);
+  --dark-txt-c: rgba(255, 255, 255, 0.8);
+  --dark-txt-c-h: rgba(255, 255, 255, 0.6);
+
+  /* --lightTheme */
+  --light-bg-c: #ffffff;
+  --light-wrapper-c: #f1f1f1;
+  --light-wrapper-c-h: rgba(218, 218, 218, 0.7);
+  --light-bg-c-tp: rgba(255, 255, 255, 0.7);
+  --light-txt-c: rgba(0, 0, 0, 0.8);
+  --light-txt-c-h: rgba(0, 0, 0, 0.6);
+
+  /* Styles */
+  --space: 1rem;
+  --transition: all 0.5s ease;
+  --br-rad: var(--space);
+}
+
+body.dark {
+  --bg-c: var(--dark-bg-c);
+  --wrapper-c: var(--dark-wrapper-c);
+  --wrapper-c-h: var(--dark-wrapper-c-h);
+  --tp-c: var(--dark-bg-c-tp);
+  --txt-c: var(--dark-txt-c);
+  --txt-c-h: var(--dark-txt-c-h);
+}
+
+body.light {
+  --bg-c: var(--light-bg-c);
+  --wrapper-c: var(--light-wrapper-c);
+  --wrapper-c-h: var(--light-wrapper-c-h);
+  --tp-c: var(--light-bg-c-tp);
+  --txt-c: var(--light-txt-c);
+  --txt-c-h: var(--light-txt-c-h);
+}
