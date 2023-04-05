@@ -1,0 +1,49 @@
+{
+  "frame": [
+    {
+      "time": "2023-03-26T10:00:00",
+      "name" : "thumb_left",
+      "rotate": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "time": "2023-03-26T10:01:00",
+      "name" : "index_main_left",
+      "rotate": [
+        45.0,
+        90.0,
+        180.0
+      ]
+    },
+    {
+      "time": "2023-03-26T10:02:00",
+      "name" : "index_second_left",
+      "rotate": [
+        180.0,
+        270.0,
+        0.0
+      ]
+    },
+    {
+      "time": "2023-03-26T10:03:00",
+      "name" : "middle_main_left",
+      "rotate": [
+        90.0,
+        180.0,
+        270.0
+      ]
+    },
+    {
+      "time": "2023-03-26T10:04:00",
+      "name" : "middle_second_left",
+      "rotate": [
+        0.0,
+        270.0,
+        180.0
+      ]
+    }
+  ]
+}

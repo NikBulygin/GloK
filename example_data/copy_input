@@ -1,0 +1,170 @@
+{
+    "config": [
+        {
+            "name": "thumb_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": {
+                "x": -1.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "parent": -1
+        },
+        {
+            "name": "index_main_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "parent": -1
+        },
+        {
+            "name": "index_second_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": null,
+            "parent": 1
+        },
+        {
+            "name": "middle_main_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": {
+                "x": 1.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "parent": -1
+        },
+        {
+            "name": "middle_second_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": null,
+            "parent": 3
+        },
+        {
+            "name": "ring_main_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": {
+                "x": 2.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "parent": -1
+        },
+        {
+            "name": "ring_second_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": null,
+            "parent": 5
+        },
+        {
+            "name": "pinky_main_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": {
+                "x": 3.0,
+                "y": 0.0,
+                "z": 2.0
+            },
+            "parent": -1
+        },
+        {
+            "name": "pinky_second_left",
+            "geometry": {
+                "width": 0.5,
+                "height": 0.25,
+                "length": 1.0,
+                "scale": 0.5
+            },
+            "rotate": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "start_pos": null,
+            "parent": 7
+        }
+    ]
+    }
+
+
