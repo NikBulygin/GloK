@@ -7,6 +7,7 @@
 #include <QJsonArray>
 #include <QHash>
 #include <QString>
+#include <QRegularExpression>
 
 #include "../item/adapter_item.h"
 #include "../item/item.h"

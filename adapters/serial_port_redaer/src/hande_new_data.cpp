@@ -1,19 +1,34 @@
 #include "../serial_port_reader.h"
 
+
+
 void serial_port_reader::handleNewData(QByteArray data)
 {
-//    qDebug() << summ_data;
-    this->summ_data  += data;
+    int index = this->summ_data.indexOf('{');
+    if (index != -1) {
+        this->summ_data.remove(0, index);
+    }
+
+//    this->summ_data = this->summ_data.split(0x1A).at(0)
+
+    qDebug() << this->summ_data;
     QJsonParseError error;
-    QJsonDocument qjsondoc = QJsonDocument::fromJson(summ_data, &error);
+    QJsonDocument qjsondoc = QJsonDocument::fromJson(this->summ_data, &error);
     if(!qjsondoc.isNull())
     {
         qDebug() << "!!!";
-        summ_data.clear();
-        this->get_config_data(new QJsonObject(qjsondoc.object()));
+        this->summ_data.clear();
+        if(qjsondoc.object().contains("config"))
+            this->get_config_data(new QJsonObject(qjsondoc.object()));
+        if(qjsondoc.object().contains("data"))
+            this->get_new_data(new QJsonObject(qjsondoc.object()));
     }
-    {
+    else {
         qDebug() << summ_data << error.errorString();
+        if (error.error == QJsonParseError::GarbageAtEnd)
+        {
+            this->summ_data.clear();
+        }
     }
 
 
@@ -26,9 +41,31 @@ void serial_port_reader::send_data(QByteArray data)
 
 void serial_port_reader::readnew_data()
 {
-    QByteArray new_data;
-    while (!this->serialPort->atEnd()) {
-        new_data += this->serialPort->readLine();
+
+    QElapsedTimer timer;
+    timer.start();
+    while(this->serialPort->bytesAvailable())
+    {
+        QByteArray new_ch = this->serialPort->read(1);
+        qDebug() << new_ch;
+        if (new_ch.at(0) == char(0x1B))
+        {
+            start_read = true;
+            continue;
+        }
+        else if(new_ch.at(0) == char(0x1A))
+        {
+            start_read = false;
+            break;
+        }
+
+        if (start_read)
+            this->summ_data += new_ch;
+
     }
-    emit dataRecieved(new_data);
+    qDebug() << "SUMM:" << this->summ_data;
+    if (!start_read)
+    {
+        emit dataRecieved(this->summ_data);
+    }
 }

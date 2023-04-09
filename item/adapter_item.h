@@ -12,7 +12,7 @@ protected:
 public:
     enum Sensor_Area
     {
-        main = 0,
+        main = -1,
         thumb_left,
         index_main_left,
         index_second_left,

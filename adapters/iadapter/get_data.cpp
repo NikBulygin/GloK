@@ -23,17 +23,14 @@ void i_adapter::get_new_data(QJsonObject* jsonobj)
 
                     if(dataobj.contains("rotate"))
                     {
-                        QJsonArray rotateArray = dataobj.value("rotate").toArray();
-                        if (rotateArray.size() == 3)
-                        {
-                            new_x = rotateArray[0].toDouble();
-                            new_y = rotateArray[1].toDouble();
-                            new_z = rotateArray[2].toDouble();
-                        }
+                        QJsonObject rotate = dataobj.value("rotate").toObject();
+                            new_x = rotate.value("x").toDouble();
+                            new_y = rotate.value("y").toDouble();
+                            new_z = rotate.value("z").toDouble();
                     }
 
                     this->update_rotate(
-                                static_cast<adapter_item::Sensor_Area>(this->hash_table->value(name)),
+                                static_cast<adapter_item::Sensor_Area>(this->get_point_by_name(name)),
                                 new_x,
                                 new_y,
                                 new_z

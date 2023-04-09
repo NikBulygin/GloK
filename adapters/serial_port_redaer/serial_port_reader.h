@@ -3,6 +3,8 @@
 
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#include <QElapsedTimer>
+#include <QTimer>
 
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -24,11 +26,12 @@ public:
     {
         return this->baudrate;
     }
-    void send_data(QByteArray data);
 
     QVector<QString> get_name_points() override;
     void connect_to_point(int i, QString password = nullptr) override;
 private:
+    bool start_read = false;
+
     QByteArray summ_data;
     int baudrate;
     QSerialPort* serialPort;
@@ -40,6 +43,8 @@ signals:
 private slots:
     void readnew_data();
     void handleNewData(QByteArray data);
+public slots:
+    void send_data(QByteArray data);
 
 
 };
