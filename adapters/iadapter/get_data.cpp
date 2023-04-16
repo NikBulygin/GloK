@@ -4,9 +4,10 @@
 
 void i_adapter::get_new_data(QJsonObject* jsonobj)
 {
-    if (jsonobj->contains("data"))
+    if (jsonobj->contains("data") || jsonobj->contains("zero_data"))
     {
-        QJsonArray datasArray = jsonobj->value("data").toArray();
+        QString key = jsonobj->contains("data") ? "data" : "zero_data";
+        QJsonArray datasArray = jsonobj->value(key).toArray();
 
         foreach (const QJsonValue& data, datasArray) {
             if(data.isObject())
@@ -33,12 +34,11 @@ void i_adapter::get_new_data(QJsonObject* jsonobj)
                                 static_cast<adapter_item::Sensor_Area>(this->get_point_by_name(name)),
                                 new_x,
                                 new_y,
-                                new_z
+                                new_z,
+                                jsonobj->contains("zero_data")
                                 );
                 }
             }
-
-
         }
     }
 }
@@ -46,6 +46,8 @@ void i_adapter::get_new_data(QJsonObject* jsonobj)
 void i_adapter::get_config_data(QJsonObject* jsonobj)
 {
     if (jsonobj->contains("config")) {
+        this->hash_table->clear();
+        this->adt_itm->get_items()->clear();
         QJsonArray configArray = jsonobj->value("config").toArray();
 
         foreach (const QJsonValue& configValue, configArray) {
@@ -153,6 +155,8 @@ void i_adapter::get_config_data(QJsonObject* jsonobj)
 
             }
         };
+
+        emit this->adt_itm->updated();
     }
     emit config_was_accepted();
 }

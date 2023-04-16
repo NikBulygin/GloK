@@ -38,6 +38,7 @@ add_executable(GloK
   item/src_adapter_item/constructor.cpp
   item/src_adapter_item/delete_item.cpp
 
+
   windows/3dgraphics/widget3d.h
   windows/3dgraphics/src/constructor.cpp
   windows/3dgraphics/src/initializegl.cpp
@@ -51,16 +52,12 @@ add_executable(GloK
 
   windows/side/item_widget_settings/item_widget.h
   windows/side/item_widget_settings/src/constructor.cpp
-  windows/side/item_widget_settings/src/posSlider.cpp
-  windows/side/item_widget_settings/src/rotSlider.cpp
-  windows/side/item_widget_settings/src/lineeditparam.cpp
-  windows/side/item_widget_settings/src/layout.cpp
-  windows/side/item_widget_settings/src/slot_line_edit.cpp
-  windows/side/item_widget_settings/src/slot_slider_pos_edit.cpp
-  windows/side/item_widget_settings/src/slot_slider_rotate_axis.cpp
-  windows/side/item_widget_settings/src/label_parent.cpp
   windows/side/item_widget_settings/src/update_all.cpp
-  windows/side/item_widget_settings/src/signals_linker.cpp
+  windows/side/item_widget_settings/src/manual_updated.cpp
+
+  windows/side/item_widget_settings/widget_serial_port_connection/widget_serial_port_connection.h
+  windows/side/item_widget_settings/widget_serial_port_connection/src/constructor.cpp
+  windows/side/item_widget_settings/widget_serial_port_connection/src/slots.cpp
 
   windows/mainwindow/mainwindow.h
   windows/mainwindow/src/constructor.cpp
@@ -90,6 +87,16 @@ add_executable(GloK
   adapters/bluetooth/src/constuctor.cpp
   adapters/bluetooth/src/connect_to_point.cpp
   adapters/bluetooth/src/get_name_points.cpp
+
+  gestrure_handler/mouse/MouseController.h
+  gestrure_handler/mouse/constructor/constructor.cpp
+  gestrure_handler/mouse/constructor/calibrate.cpp
+  gestrure_handler/mouse/constructor/update.cpp
+
+  gestrure_handler/keyboard/KeyboardController.h
+
+  windows/widget_gesture_handler/widget_gesture_handler.h
+  windows/widget_gesture_handler/src/constructor.cpp
 )
 
 target_link_libraries(GloK PUBLIC

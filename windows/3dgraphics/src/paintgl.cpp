@@ -20,20 +20,23 @@ void widget3d::paintGL()
 
 //   glCallList(m_n);
 
-   for(int i = 0; i < this->adp->get_count(); i++)
+   for(int i = 0; i < adp->get_count(); i++)
    {
 
-//        glRotatef(this->adp->get_item(i)->get_x_rotate(), 1.0, 0.0, 0.0);
-//        glRotatef(this->adp->get_item(i)->get_y_rotate(), 0.0, 1.0, 0.0);
-//        glRotatef(this->adp->get_item(i)->get_z_rotate(), 0.0, 0.0, 1.0);
+        glRotatef(adp->get_item(i)->get_x_rotate() -
+                  adp->get_item(i)->get_x_zero_rotate(), 1.0, 0.0, 0.0);
+        glRotatef(adp->get_item(i)->get_y_rotate() -
+                  adp->get_item(i)->get_y_zero_rotate(), 0.0, 1.0, 0.0);
+        glRotatef(adp->get_item(i)->get_z_rotate() -
+                  adp->get_item(i)->get_z_zero_rotate(), 0.0, 0.0, 1.0);
 
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
         glRotatef(m_x_Rotate, 1.0,0.0,0.0);
         glRotatef(m_y_Rotate, 0.0,1.0,0.0);
-        draw_item_cube(this->adp->get_item(i));
+        draw_item_cube(adp->get_item(i));
 //        createcube(0.5, 0.25, 1);
-//        this->adp->get_item(i)->draw();
+//        adp->get_item(i)->draw();
    }
 }

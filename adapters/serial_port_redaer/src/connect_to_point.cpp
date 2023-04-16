@@ -14,3 +14,13 @@ void serial_port_reader::connect_to_point(int i, QString password )
     connect(this, &serial_port_reader::dataRecieved, this, &serial_port_reader::handleNewData);
     connect(this->serialPort, &QSerialPort::readyRead, this, &serial_port_reader::readnew_data);
 }
+
+
+void serial_port_reader::disconnect_from_point()
+{
+    this->serialPort->close();
+}
+bool serial_port_reader::is_connected_to_point()
+{
+    return this->serialPort->isOpen();
+}

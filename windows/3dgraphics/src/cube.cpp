@@ -4,9 +4,9 @@ void widget3d::draw_item_cube(item* itm)
     glTranslatef(itm->get_start_pos()->x(),
         itm->get_start_pos()->y(),
         itm->get_start_pos()->z());
-    glRotatef(itm->get_x_rotate(), 1.0, 0.0, 0.0);
-    glRotatef(itm->get_y_rotate(), 0.0, 1.0, 0.0);
-    glRotatef(itm->get_z_rotate(), 0.0, 0.0, 1.0);
+    glRotatef(itm->get_x_zero_rotate() - itm->get_x_rotate(), 1.0, 0.0, 0.0);
+    glRotatef(itm->get_y_zero_rotate() - itm->get_y_rotate(), 0.0, 1.0, 0.0);
+    glRotatef(itm->get_z_zero_rotate() - itm->get_z_rotate(), 0.0, 0.0, 1.0);
 
 
 //    itm->get_length()

@@ -9,11 +9,13 @@
 #include "../../item/adapter_item.h"
 #include "../../item/item.h"
 
+
+extern adapter_item* adp;
 class widget3d : public QOpenGLWidget, protected QOpenGLFunctions
 {
     Q_OBJECT
 public:
-    widget3d(adapter_item* adp ,QWidget* parent = nullptr);
+    widget3d(QWidget* parent = nullptr);
 
 protected:
     virtual void initializeGL();
@@ -29,7 +31,6 @@ private:
     GLfloat m_y_Rotate;
     GLfloat m_x_Rotate;
     QPoint m_pt_Position;
-    adapter_item* adp;
 };
 
 #endif // 3DWIDGET_H

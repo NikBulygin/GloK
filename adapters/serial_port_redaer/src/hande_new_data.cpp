@@ -20,7 +20,7 @@ void serial_port_reader::handleNewData(QByteArray data)
         this->summ_data.clear();
         if(qjsondoc.object().contains("config"))
             this->get_config_data(new QJsonObject(qjsondoc.object()));
-        if(qjsondoc.object().contains("data"))
+        if(qjsondoc.object().contains("data") || qjsondoc.object().contains("zero_data"))
             this->get_new_data(new QJsonObject(qjsondoc.object()));
     }
     else {

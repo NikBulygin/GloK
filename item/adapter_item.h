@@ -27,7 +27,7 @@ public:
 
     adapter_item();
     adapter_item(int i);
-//    adapter_item(QVector<item>* items);
+    void set_items(QVector<item*>* items);
 
     QVector<item*>* get_items();
     item* get_item(Sensor_Area index);
@@ -37,6 +37,9 @@ public:
     void delete_item(int index);
 
     int get_count();
+
+signals:
+    void updated();
 };
 
 #endif // ADAPTER_ITEM_H

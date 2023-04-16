@@ -43,7 +43,8 @@ protected:
                         QVector<float> new_geometry);
 
     void update_rotate(adapter_item::Sensor_Area index,
-            float x, float y, float z);
+            float x, float y, float z,
+                       bool is_zero = false);
 
     void update_name(adapter_item::Sensor_Area index,
                      QString new_name);

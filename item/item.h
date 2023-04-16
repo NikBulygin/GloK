@@ -17,6 +17,8 @@ protected:
     QVector3D* end_pos = nullptr;
 
     QVector<float>* m_rotate; //3
+    QVector<float>* m_zero_rotate;
+
     QString name;
     item* parent = nullptr;
 private:
@@ -49,7 +51,6 @@ public:
     item(QVector3D* sp = nullptr, QString name = "", float w = 0.5, float h = 0.25, float l = 1, float sc = 0.5, float x_r = 0, float y_r = 0, float z_r = 0, item* prnt = nullptr);
     item(QVector3D* sp = nullptr, QString name = "", QVector<float>* geom = nullptr, QVector<float>* rot = nullptr, item* prnt = nullptr);
 
-    void draw();
 
     QVector3D* get_start_pos();
     QVector3D* get_end_pos();
@@ -75,6 +76,15 @@ public:
     void set_y_rotate(float y);
     void set_z_rotate(float z);
 
+    QVector<float>* get_zero_rotate();
+    float get_x_zero_rotate();
+    float get_y_zero_rotate();
+    float get_z_zero_rotate();
+    void set_zero_rotate(QVector<float>* rotate);
+    void set_x_zero_rotate(float x);
+    void set_y_zero_rotate(float y);
+    void set_z_zero_rotate(float z);
+
     item* get_parent();
     void set_parent(item* prnt);
 
@@ -82,6 +92,7 @@ public:
     void set_name(QString name);
 
 private slots:
+    void draw();
     void parents_was_updated();
     void calculate_end_pos();
 

@@ -29,6 +29,8 @@ public:
 
     QVector<QString> get_name_points() override;
     void connect_to_point(int i, QString password = nullptr) override;
+    void disconnect_from_point();
+    bool is_connected_to_point();
 private:
     bool start_read = false;
 
@@ -45,8 +47,6 @@ private slots:
     void handleNewData(QByteArray data);
 public slots:
     void send_data(QByteArray data);
-
-
 };
 
 

@@ -157,5 +157,15 @@ adapter_item::adapter_item()
 
 }
 
+void adapter_item::set_items(QVector<item*> *items)
+{
+    this->items->clear();
+    for(int i = 0; i < items->size(); i++)
+    {
+        this->items->push_back(items->at(i));
+    }
+
+    emit updated();
+}
 
 //adapter_item::adapter_item(QVector<item>* items) {}

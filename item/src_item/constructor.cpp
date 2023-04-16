@@ -9,6 +9,7 @@ item::item(QVector3D* sp, QString name, float w, float h, float l, float sc, flo
     //
     this->end_pos = new QVector3D(5,5,5);
     this->m_rotate = new QVector<float>(3);
+    this->m_zero_rotate = new QVector<float>(3);
 
     this->set_start_pos(sp);
     this->set_width(w);
@@ -19,6 +20,10 @@ item::item(QVector3D* sp, QString name, float w, float h, float l, float sc, flo
     this->set_x_rotate(x);
     this->set_y_rotate(y);
     this->set_z_rotate(z);
+
+    this->set_x_zero_rotate(0);
+    this->set_y_zero_rotate(0);
+    this->set_z_zero_rotate(0);
 
     this->name = name;
     this->calculate_end_pos();

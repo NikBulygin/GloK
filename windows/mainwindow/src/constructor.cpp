@@ -1,10 +1,10 @@
 #include "../mainwindow.h"
 
-MainWidget::MainWidget(adapter_item* adp_item, QWidget* parent) : QMainWindow(parent)
+MainWidget::MainWidget(QWidget* parent) : QMainWindow(parent)
 {
-    this->adp_item = adp_item == nullptr ? new adapter_item : adp_item;
-    this->side_widtet = new side (this->adp_item, this);
-    this->widg3d = new widget3d(this->adp_item, this);
+    this->side_widtet = new side (this);
+    this->widg3d = new widget3d(this);
+    this->wgh = new Widget_Gesture_Handler(this);
 
     QWidget *centralWidget = new QWidget(this); // создаем центральный виджет
     setCentralWidget(centralWidget); // устанавливаем его как центральный виджет окна
@@ -21,12 +21,21 @@ MainWidget::MainWidget(adapter_item* adp_item, QWidget* parent) : QMainWindow(pa
 
     // создаем второй виджет
 //    QWidget *widget2 = new QWidget(centralWidget);
-    this->widg3d->setMinimumWidth(width() * 0.7); // задаем минимальную ширину
+    this->widg3d->setMinimumWidth(width() * 0.5); // задаем минимальную ширину
     this->widg3d->setMinimumHeight(height()); // задаем минимальную ширину
 //    widget2->setStyleSheet("background-color: blue;"); // устанавливаем синий фон
     layout->addWidget(this->widg3d); // добавляем в макет
 
+
+    // создаем третий виджет
+//    QWidget *widget2 = new QWidget(centralWidget);
+    this->wgh->setMinimumWidth(width() * 0.2); // задаем минимальную ширину
+    this->wgh->setMinimumHeight(height()); // задаем минимальную ширину
+//    widget2->setStyleSheet("background-color: blue;"); // устанавливаем синий фон
+    layout->addWidget(this->wgh); // добавляем в макет
+
     // устанавливаем пропорции виджетов
     layout->setStretchFactor(this->side_widtet, 2); // первый виджет занимает 20% ширины, поэтому задаем коэффициент 1
     layout->setStretchFactor(this->widg3d, 4); // второй виджет занимает оставшиеся 80%, поэтому задаем коэффициент 4
+    layout->setStretchFactor(this->wgh, 4); // второй виджет занимает оставшиеся 80%, поэтому задаем коэффициент 4
 }

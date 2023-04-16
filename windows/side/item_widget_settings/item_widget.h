@@ -40,24 +40,17 @@ public:
         scale = 3,
         name = 4
     } le;
-
+private:
+    const int rot_min = -180;
+    const int rot_max = 180;
+    bool manual_modifying = false;
 protected:
     item* obj;
 
-    QVector<QVector<QSlider*>*>* PosSlider_XYZ;
-    QVector<QVector<QLabel*>*>* PosLabel_XYZ;
+    QVector<QLineEdit*>* LineEdit_PosXYZZ;
     QVector<QSlider*>* RotSlidex_XYZ;
-    QVector<QLabel*>* RotLabel_XYZ;
+    QVector<QLineEdit*>* RotZero_XYZ;
     QVector<QLineEdit*>* LineEdit_param;
-    QLabel* Label_parent;
-
-
-    void setlayout();
-    void create_lineedits();
-    void create_posSLider();
-    void create_rotSlider();
-    void create_label_parent();
-    void create_link_signal();
 
     item* get_obj()
     {
@@ -70,10 +63,8 @@ protected:
     }
 
 private slots:
-    void LineEditing(QString new_value, item_widget::lineedit_geom type);
-    void Slider_modify_pos(float new_value, item_widget::slider_axis axis, item_widget::vect_pos pos);
-    void Slider_modify_rotate(float new_value, item_widget::slider_axis axis);
     void update_all();
+    void manual_updated();
 
 signals:
     void was_updated();
